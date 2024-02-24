@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@app/core": ["libs/core/src/index.ts"],
+      "@app/db": ["libs/db/src/index.ts"],
+      "@app/gql/*": ["libs/db/src/graphql/*"],
+      "@app/plugin": ["libs/plugin/src/index.ts"],
+      "@app/utils": ["libs/utils/src/index.ts"],
+      "@app/utils/*": ["libs/utils/src/*"],
+      "@gql-generated": ["libs/db/src/graphql/generated"],
+      "@gql-generated/*": ["libs/db/src/graphql/generated/*"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

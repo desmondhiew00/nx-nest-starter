@@ -1,0 +1,14 @@
+{
+  "executors": {
+    "prisma-seed": {
+      "implementation": "./src/executors/prisma-seed/executor",
+      "schema": "./src/executors/prisma-seed/schema.json",
+      "description": "prisma-seed executor"
+    },
+    "prisma-reset": {
+      "implementation": "./src/executors/prisma-reset/executor",
+      "schema": "./src/executors/prisma-reset/schema.json",
+      "description": "prisma-reset executor"
+    }
+  }
+}
