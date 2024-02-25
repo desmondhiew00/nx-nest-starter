@@ -11,32 +11,31 @@ import { UserUpdateToOneWithWhereWithoutPostsInput } from './user-update-to-one-
 
 @InputType()
 export class UserUpdateOneWithoutPostsNestedInput {
+  @Field(() => UserCreateWithoutPostsInput, { nullable: true })
+  @Type(() => UserCreateWithoutPostsInput)
+  create?: UserCreateWithoutPostsInput;
 
-    @Field(() => UserCreateWithoutPostsInput, {nullable:true})
-    @Type(() => UserCreateWithoutPostsInput)
-    create?: UserCreateWithoutPostsInput;
+  @Field(() => UserCreateOrConnectWithoutPostsInput, { nullable: true })
+  @Type(() => UserCreateOrConnectWithoutPostsInput)
+  connectOrCreate?: UserCreateOrConnectWithoutPostsInput;
 
-    @Field(() => UserCreateOrConnectWithoutPostsInput, {nullable:true})
-    @Type(() => UserCreateOrConnectWithoutPostsInput)
-    connectOrCreate?: UserCreateOrConnectWithoutPostsInput;
+  @Field(() => UserUpsertWithoutPostsInput, { nullable: true })
+  @Type(() => UserUpsertWithoutPostsInput)
+  upsert?: UserUpsertWithoutPostsInput;
 
-    @Field(() => UserUpsertWithoutPostsInput, {nullable:true})
-    @Type(() => UserUpsertWithoutPostsInput)
-    upsert?: UserUpsertWithoutPostsInput;
+  @Field(() => UserWhereInput, { nullable: true })
+  @Type(() => UserWhereInput)
+  disconnect?: UserWhereInput;
 
-    @Field(() => UserWhereInput, {nullable:true})
-    @Type(() => UserWhereInput)
-    disconnect?: UserWhereInput;
+  @Field(() => UserWhereInput, { nullable: true })
+  @Type(() => UserWhereInput)
+  delete?: UserWhereInput;
 
-    @Field(() => UserWhereInput, {nullable:true})
-    @Type(() => UserWhereInput)
-    delete?: UserWhereInput;
+  @Field(() => UserWhereUniqueInput, { nullable: true })
+  @Type(() => UserWhereUniqueInput)
+  connect?: Prisma.AtLeast<UserWhereUniqueInput, 'id' | 'email'>;
 
-    @Field(() => UserWhereUniqueInput, {nullable:true})
-    @Type(() => UserWhereUniqueInput)
-    connect?: Prisma.AtLeast<UserWhereUniqueInput, 'id' | 'email'>;
-
-    @Field(() => UserUpdateToOneWithWhereWithoutPostsInput, {nullable:true})
-    @Type(() => UserUpdateToOneWithWhereWithoutPostsInput)
-    update?: UserUpdateToOneWithWhereWithoutPostsInput;
+  @Field(() => UserUpdateToOneWithWhereWithoutPostsInput, { nullable: true })
+  @Type(() => UserUpdateToOneWithWhereWithoutPostsInput)
+  update?: UserUpdateToOneWithWhereWithoutPostsInput;
 }

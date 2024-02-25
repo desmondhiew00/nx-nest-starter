@@ -4,28 +4,27 @@ import { PostCreateNestedManyWithoutAuthorInput } from '../post/post-create-nest
 
 @InputType()
 export class UserCreateInput {
+  @Field(() => String, { nullable: false })
+  email!: string;
 
-    @Field(() => String, {nullable:false})
-    email!: string;
+  @Field(() => String, { nullable: true })
+  name?: string;
 
-    @Field(() => String, {nullable:true})
-    name?: string;
+  @Field(() => String, { nullable: true })
+  avatar?: string;
 
-    @Field(() => String, {nullable:true})
-    avatar?: string;
+  @Field(() => String, { nullable: false })
+  password!: string;
 
-    @Field(() => String, {nullable:false})
-    password!: string;
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    createdAt?: Date | string;
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    updatedAt?: Date | string;
+  @Field(() => Date, { nullable: true })
+  deletedAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    deletedAt?: Date | string;
-
-    @Field(() => PostCreateNestedManyWithoutAuthorInput, {nullable:true})
-    posts?: PostCreateNestedManyWithoutAuthorInput;
+  @Field(() => PostCreateNestedManyWithoutAuthorInput, { nullable: true })
+  posts?: PostCreateNestedManyWithoutAuthorInput;
 }

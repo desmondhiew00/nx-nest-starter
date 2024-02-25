@@ -7,12 +7,11 @@ import { PostCreateWithoutAuthorInput } from './post-create-without-author.input
 
 @InputType()
 export class PostCreateOrConnectWithoutAuthorInput {
+  @Field(() => PostWhereUniqueInput, { nullable: false })
+  @Type(() => PostWhereUniqueInput)
+  where!: Prisma.AtLeast<PostWhereUniqueInput, 'id'>;
 
-    @Field(() => PostWhereUniqueInput, {nullable:false})
-    @Type(() => PostWhereUniqueInput)
-    where!: Prisma.AtLeast<PostWhereUniqueInput, 'id'>;
-
-    @Field(() => PostCreateWithoutAuthorInput, {nullable:false})
-    @Type(() => PostCreateWithoutAuthorInput)
-    create!: PostCreateWithoutAuthorInput;
+  @Field(() => PostCreateWithoutAuthorInput, { nullable: false })
+  @Type(() => PostCreateWithoutAuthorInput)
+  create!: PostCreateWithoutAuthorInput;
 }

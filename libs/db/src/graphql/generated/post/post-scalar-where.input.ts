@@ -9,37 +9,36 @@ import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.inpu
 
 @InputType()
 export class PostScalarWhereInput {
+  @Field(() => [PostScalarWhereInput], { nullable: true })
+  AND?: Array<PostScalarWhereInput>;
 
-    @Field(() => [PostScalarWhereInput], {nullable:true})
-    AND?: Array<PostScalarWhereInput>;
+  @Field(() => [PostScalarWhereInput], { nullable: true })
+  OR?: Array<PostScalarWhereInput>;
 
-    @Field(() => [PostScalarWhereInput], {nullable:true})
-    OR?: Array<PostScalarWhereInput>;
+  @Field(() => [PostScalarWhereInput], { nullable: true })
+  NOT?: Array<PostScalarWhereInput>;
 
-    @Field(() => [PostScalarWhereInput], {nullable:true})
-    NOT?: Array<PostScalarWhereInput>;
+  @Field(() => IntFilter, { nullable: true })
+  id?: IntFilter;
 
-    @Field(() => IntFilter, {nullable:true})
-    id?: IntFilter;
+  @Field(() => StringFilter, { nullable: true })
+  title?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    title?: StringFilter;
+  @Field(() => StringFilter, { nullable: true })
+  content?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    content?: StringFilter;
+  @Field(() => BoolFilter, { nullable: true })
+  published?: BoolFilter;
 
-    @Field(() => BoolFilter, {nullable:true})
-    published?: BoolFilter;
+  @Field(() => IntNullableFilter, { nullable: true })
+  authorId?: IntNullableFilter;
 
-    @Field(() => IntNullableFilter, {nullable:true})
-    authorId?: IntNullableFilter;
+  @Field(() => DateTimeFilter, { nullable: true })
+  createdAt?: DateTimeFilter;
 
-    @Field(() => DateTimeFilter, {nullable:true})
-    createdAt?: DateTimeFilter;
+  @Field(() => DateTimeFilter, { nullable: true })
+  updatedAt?: DateTimeFilter;
 
-    @Field(() => DateTimeFilter, {nullable:true})
-    updatedAt?: DateTimeFilter;
-
-    @Field(() => DateTimeNullableFilter, {nullable:true})
-    deletedAt?: DateTimeNullableFilter;
+  @Field(() => DateTimeNullableFilter, { nullable: true })
+  deletedAt?: DateTimeNullableFilter;
 }

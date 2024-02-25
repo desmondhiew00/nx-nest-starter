@@ -3,7 +3,7 @@ import { AwsS3Module } from 'nestlibs-aws-s3';
 import { JwtAuthModule } from 'nestlibs-jwt-auth';
 import { LoggerModule } from 'nestlibs-winston-logger';
 
-import { GqlModule } from '@app/core';
+import { EnvConfigModule, GqlModule } from '@app/core';
 import { PrismaModule, extendedClient } from '@app/db';
 import { PrismaClient } from '@prisma/client';
 import { UserModule } from './modules/user/user.module';
@@ -12,6 +12,7 @@ import { AppService } from './app.service';
 
 @Module({
   imports: [
+    EnvConfigModule.forRoot(null, ['JwtAuth', 'AwsS3']),
     LoggerModule.forRoot('demo'),
     PrismaModule,
     JwtAuthModule.forRoot('main-auth', {

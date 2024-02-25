@@ -14,10 +14,9 @@ export default async function runExecutor() {
       type: 'list',
       name: 'seedFile',
       message: 'Which seed file would you like to run?',
-      choices: files,
-    },
+      choices: files
+    }
   ]);
-
 
   const { execSync } = require('child_process');
   execSync(`npx ts-node ${join(seedDir, seedFile)}`, { stdio: 'inherit' });

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Field, Int, ObjectType } from "@nestjs/graphql";
+import { Field, Int, ObjectType } from '@nestjs/graphql';
 
 type Class = new (...args: any[]) => any;
 export const CreateFindManyResultType = <TItem>(TItemClass: any): Class => {
@@ -14,6 +14,6 @@ export const CreateFindManyResultType = <TItem>(TItemClass: any): Class => {
     data: TItem[];
   }
 
-  Object.defineProperty (FindManyResultClass, 'name', {value: `${TItemClass.name}FindManyResult`});
+  Object.defineProperty(FindManyResultClass, 'name', { value: `${TItemClass.name}FindManyResult` });
   return FindManyResultClass;
-}
+};

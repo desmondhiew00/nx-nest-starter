@@ -20,7 +20,7 @@ const softDeleteExtension = createSoftDeleteExtension({
 });
 
 export const extendedClient = client.$extends(softDeleteExtension).$extends({
-  name: "add hello to user name",
+  name: 'add hello to user name',
   result: {
     user: {
       fullName: {

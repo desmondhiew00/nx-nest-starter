@@ -8,19 +8,18 @@ import { PostMaxAggregate } from './post-max-aggregate.output';
 
 @ObjectType()
 export class AggregatePost {
+  @Field(() => PostCountAggregate, { nullable: true })
+  _count?: PostCountAggregate;
 
-    @Field(() => PostCountAggregate, {nullable:true})
-    _count?: PostCountAggregate;
+  @Field(() => PostAvgAggregate, { nullable: true })
+  _avg?: PostAvgAggregate;
 
-    @Field(() => PostAvgAggregate, {nullable:true})
-    _avg?: PostAvgAggregate;
+  @Field(() => PostSumAggregate, { nullable: true })
+  _sum?: PostSumAggregate;
 
-    @Field(() => PostSumAggregate, {nullable:true})
-    _sum?: PostSumAggregate;
+  @Field(() => PostMinAggregate, { nullable: true })
+  _min?: PostMinAggregate;
 
-    @Field(() => PostMinAggregate, {nullable:true})
-    _min?: PostMinAggregate;
-
-    @Field(() => PostMaxAggregate, {nullable:true})
-    _max?: PostMaxAggregate;
+  @Field(() => PostMaxAggregate, { nullable: true })
+  _max?: PostMaxAggregate;
 }

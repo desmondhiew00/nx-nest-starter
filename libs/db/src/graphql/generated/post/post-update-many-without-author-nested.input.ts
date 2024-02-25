@@ -13,48 +13,47 @@ import { PostScalarWhereInput } from './post-scalar-where.input';
 
 @InputType()
 export class PostUpdateManyWithoutAuthorNestedInput {
+  @Field(() => [PostCreateWithoutAuthorInput], { nullable: true })
+  @Type(() => PostCreateWithoutAuthorInput)
+  create?: Array<PostCreateWithoutAuthorInput>;
 
-    @Field(() => [PostCreateWithoutAuthorInput], {nullable:true})
-    @Type(() => PostCreateWithoutAuthorInput)
-    create?: Array<PostCreateWithoutAuthorInput>;
+  @Field(() => [PostCreateOrConnectWithoutAuthorInput], { nullable: true })
+  @Type(() => PostCreateOrConnectWithoutAuthorInput)
+  connectOrCreate?: Array<PostCreateOrConnectWithoutAuthorInput>;
 
-    @Field(() => [PostCreateOrConnectWithoutAuthorInput], {nullable:true})
-    @Type(() => PostCreateOrConnectWithoutAuthorInput)
-    connectOrCreate?: Array<PostCreateOrConnectWithoutAuthorInput>;
+  @Field(() => [PostUpsertWithWhereUniqueWithoutAuthorInput], { nullable: true })
+  @Type(() => PostUpsertWithWhereUniqueWithoutAuthorInput)
+  upsert?: Array<PostUpsertWithWhereUniqueWithoutAuthorInput>;
 
-    @Field(() => [PostUpsertWithWhereUniqueWithoutAuthorInput], {nullable:true})
-    @Type(() => PostUpsertWithWhereUniqueWithoutAuthorInput)
-    upsert?: Array<PostUpsertWithWhereUniqueWithoutAuthorInput>;
+  @Field(() => PostCreateManyAuthorInputEnvelope, { nullable: true })
+  @Type(() => PostCreateManyAuthorInputEnvelope)
+  createMany?: PostCreateManyAuthorInputEnvelope;
 
-    @Field(() => PostCreateManyAuthorInputEnvelope, {nullable:true})
-    @Type(() => PostCreateManyAuthorInputEnvelope)
-    createMany?: PostCreateManyAuthorInputEnvelope;
+  @Field(() => [PostWhereUniqueInput], { nullable: true })
+  @Type(() => PostWhereUniqueInput)
+  set?: Array<Prisma.AtLeast<PostWhereUniqueInput, 'id'>>;
 
-    @Field(() => [PostWhereUniqueInput], {nullable:true})
-    @Type(() => PostWhereUniqueInput)
-    set?: Array<Prisma.AtLeast<PostWhereUniqueInput, 'id'>>;
+  @Field(() => [PostWhereUniqueInput], { nullable: true })
+  @Type(() => PostWhereUniqueInput)
+  disconnect?: Array<Prisma.AtLeast<PostWhereUniqueInput, 'id'>>;
 
-    @Field(() => [PostWhereUniqueInput], {nullable:true})
-    @Type(() => PostWhereUniqueInput)
-    disconnect?: Array<Prisma.AtLeast<PostWhereUniqueInput, 'id'>>;
+  @Field(() => [PostWhereUniqueInput], { nullable: true })
+  @Type(() => PostWhereUniqueInput)
+  delete?: Array<Prisma.AtLeast<PostWhereUniqueInput, 'id'>>;
 
-    @Field(() => [PostWhereUniqueInput], {nullable:true})
-    @Type(() => PostWhereUniqueInput)
-    delete?: Array<Prisma.AtLeast<PostWhereUniqueInput, 'id'>>;
+  @Field(() => [PostWhereUniqueInput], { nullable: true })
+  @Type(() => PostWhereUniqueInput)
+  connect?: Array<Prisma.AtLeast<PostWhereUniqueInput, 'id'>>;
 
-    @Field(() => [PostWhereUniqueInput], {nullable:true})
-    @Type(() => PostWhereUniqueInput)
-    connect?: Array<Prisma.AtLeast<PostWhereUniqueInput, 'id'>>;
+  @Field(() => [PostUpdateWithWhereUniqueWithoutAuthorInput], { nullable: true })
+  @Type(() => PostUpdateWithWhereUniqueWithoutAuthorInput)
+  update?: Array<PostUpdateWithWhereUniqueWithoutAuthorInput>;
 
-    @Field(() => [PostUpdateWithWhereUniqueWithoutAuthorInput], {nullable:true})
-    @Type(() => PostUpdateWithWhereUniqueWithoutAuthorInput)
-    update?: Array<PostUpdateWithWhereUniqueWithoutAuthorInput>;
+  @Field(() => [PostUpdateManyWithWhereWithoutAuthorInput], { nullable: true })
+  @Type(() => PostUpdateManyWithWhereWithoutAuthorInput)
+  updateMany?: Array<PostUpdateManyWithWhereWithoutAuthorInput>;
 
-    @Field(() => [PostUpdateManyWithWhereWithoutAuthorInput], {nullable:true})
-    @Type(() => PostUpdateManyWithWhereWithoutAuthorInput)
-    updateMany?: Array<PostUpdateManyWithWhereWithoutAuthorInput>;
-
-    @Field(() => [PostScalarWhereInput], {nullable:true})
-    @Type(() => PostScalarWhereInput)
-    deleteMany?: Array<PostScalarWhereInput>;
+  @Field(() => [PostScalarWhereInput], { nullable: true })
+  @Type(() => PostScalarWhereInput)
+  deleteMany?: Array<PostScalarWhereInput>;
 }

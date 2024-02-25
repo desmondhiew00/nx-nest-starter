@@ -4,25 +4,24 @@ import { UserCreateNestedOneWithoutPostsInput } from '../user/user-create-nested
 
 @InputType()
 export class PostCreateInput {
+  @Field(() => String, { nullable: false })
+  title!: string;
 
-    @Field(() => String, {nullable:false})
-    title!: string;
+  @Field(() => String, { nullable: false })
+  content!: string;
 
-    @Field(() => String, {nullable:false})
-    content!: string;
+  @Field(() => Boolean, { nullable: true })
+  published?: boolean;
 
-    @Field(() => Boolean, {nullable:true})
-    published?: boolean;
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    createdAt?: Date | string;
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    updatedAt?: Date | string;
+  @Field(() => Date, { nullable: true })
+  deletedAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    deletedAt?: Date | string;
-
-    @Field(() => UserCreateNestedOneWithoutPostsInput, {nullable:true})
-    author?: UserCreateNestedOneWithoutPostsInput;
+  @Field(() => UserCreateNestedOneWithoutPostsInput, { nullable: true })
+  author?: UserCreateNestedOneWithoutPostsInput;
 }

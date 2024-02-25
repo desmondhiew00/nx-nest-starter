@@ -4,28 +4,27 @@ import { Int } from '@nestjs/graphql';
 
 @InputType()
 export class PostCreateManyInput {
+  @Field(() => Int, { nullable: true })
+  id?: number;
 
-    @Field(() => Int, {nullable:true})
-    id?: number;
+  @Field(() => String, { nullable: false })
+  title!: string;
 
-    @Field(() => String, {nullable:false})
-    title!: string;
+  @Field(() => String, { nullable: false })
+  content!: string;
 
-    @Field(() => String, {nullable:false})
-    content!: string;
+  @Field(() => Boolean, { nullable: true })
+  published?: boolean;
 
-    @Field(() => Boolean, {nullable:true})
-    published?: boolean;
+  @Field(() => Int, { nullable: true })
+  authorId?: number;
 
-    @Field(() => Int, {nullable:true})
-    authorId?: number;
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    createdAt?: Date | string;
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    updatedAt?: Date | string;
-
-    @Field(() => Date, {nullable:true})
-    deletedAt?: Date | string;
+  @Field(() => Date, { nullable: true })
+  deletedAt?: Date | string;
 }

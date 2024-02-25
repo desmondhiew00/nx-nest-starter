@@ -1,5 +1,5 @@
 import { PrismaService } from '@app/db';
-import { CreateFindManyResultType } from '@app/gql/helper';
+import { CreateFindManyResultType } from '@app/gql';
 import { FindManyUserArgs, User } from '@gql-generated';
 import { Args, Info, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
 import { PrismaSelect } from '@paljs/plugins';
@@ -12,7 +12,7 @@ import { UseJwtAuthGuard } from '../auth';
 const UserManyResult = CreateFindManyResultType(User);
 
 @Resolver(() => User)
-export class UserResolver  {
+export class UserResolver {
   constructor(
     private prisma: PrismaService,
     private s3: AwsS3Service,

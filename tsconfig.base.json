@@ -19,7 +19,7 @@
       "@/*": ["./*"],
       "@app/core": ["libs/core/src/index.ts"],
       "@app/db": ["libs/db/src/index.ts"],
-      "@app/gql/*": ["libs/db/src/graphql/*"],
+      "@app/gql": ["libs/db/src/graphql/index.ts"],
       "@app/plugin": ["libs/plugin/src/index.ts"],
       "@app/utils": ["libs/utils/src/index.ts"],
       "@app/utils/*": ["libs/utils/src/*"],

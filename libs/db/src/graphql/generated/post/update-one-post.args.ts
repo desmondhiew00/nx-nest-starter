@@ -7,12 +7,11 @@ import { PostWhereUniqueInput } from './post-where-unique.input';
 
 @ArgsType()
 export class UpdateOnePostArgs {
+  @Field(() => PostUpdateInput, { nullable: false })
+  @Type(() => PostUpdateInput)
+  data!: PostUpdateInput;
 
-    @Field(() => PostUpdateInput, {nullable:false})
-    @Type(() => PostUpdateInput)
-    data!: PostUpdateInput;
-
-    @Field(() => PostWhereUniqueInput, {nullable:false})
-    @Type(() => PostWhereUniqueInput)
-    where!: Prisma.AtLeast<PostWhereUniqueInput, 'id'>;
+  @Field(() => PostWhereUniqueInput, { nullable: false })
+  @Type(() => PostWhereUniqueInput)
+  where!: Prisma.AtLeast<PostWhereUniqueInput, 'id'>;
 }

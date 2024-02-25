@@ -16,7 +16,7 @@ export class GqlModule {
       formatError: (error) => {
         return { message: error.message };
       },
-      ...config,
+      ...config
     });
   }
 }

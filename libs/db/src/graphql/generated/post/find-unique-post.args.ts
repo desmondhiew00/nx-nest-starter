@@ -6,8 +6,7 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class FindUniquePostArgs {
-
-    @Field(() => PostWhereUniqueInput, {nullable:false})
-    @Type(() => PostWhereUniqueInput)
-    where!: Prisma.AtLeast<PostWhereUniqueInput, 'id'>;
+  @Field(() => PostWhereUniqueInput, { nullable: false })
+  @Type(() => PostWhereUniqueInput)
+  where!: Prisma.AtLeast<PostWhereUniqueInput, 'id'>;
 }

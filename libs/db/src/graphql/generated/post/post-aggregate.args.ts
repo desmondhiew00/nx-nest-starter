@@ -14,35 +14,34 @@ import { PostMaxAggregateInput } from './post-max-aggregate.input';
 
 @ArgsType()
 export class PostAggregateArgs {
+  @Field(() => PostWhereInput, { nullable: true })
+  @Type(() => PostWhereInput)
+  where?: PostWhereInput;
 
-    @Field(() => PostWhereInput, {nullable:true})
-    @Type(() => PostWhereInput)
-    where?: PostWhereInput;
+  @Field(() => [PostOrderByWithRelationInput], { nullable: true })
+  orderBy?: Array<PostOrderByWithRelationInput>;
 
-    @Field(() => [PostOrderByWithRelationInput], {nullable:true})
-    orderBy?: Array<PostOrderByWithRelationInput>;
+  @Field(() => PostWhereUniqueInput, { nullable: true })
+  cursor?: Prisma.AtLeast<PostWhereUniqueInput, 'id'>;
 
-    @Field(() => PostWhereUniqueInput, {nullable:true})
-    cursor?: Prisma.AtLeast<PostWhereUniqueInput, 'id'>;
+  @Field(() => Int, { nullable: true })
+  take?: number;
 
-    @Field(() => Int, {nullable:true})
-    take?: number;
+  @Field(() => Int, { nullable: true })
+  skip?: number;
 
-    @Field(() => Int, {nullable:true})
-    skip?: number;
+  @Field(() => PostCountAggregateInput, { nullable: true })
+  _count?: PostCountAggregateInput;
 
-    @Field(() => PostCountAggregateInput, {nullable:true})
-    _count?: PostCountAggregateInput;
+  @Field(() => PostAvgAggregateInput, { nullable: true })
+  _avg?: PostAvgAggregateInput;
 
-    @Field(() => PostAvgAggregateInput, {nullable:true})
-    _avg?: PostAvgAggregateInput;
+  @Field(() => PostSumAggregateInput, { nullable: true })
+  _sum?: PostSumAggregateInput;
 
-    @Field(() => PostSumAggregateInput, {nullable:true})
-    _sum?: PostSumAggregateInput;
+  @Field(() => PostMinAggregateInput, { nullable: true })
+  _min?: PostMinAggregateInput;
 
-    @Field(() => PostMinAggregateInput, {nullable:true})
-    _min?: PostMinAggregateInput;
-
-    @Field(() => PostMaxAggregateInput, {nullable:true})
-    _max?: PostMaxAggregateInput;
+  @Field(() => PostMaxAggregateInput, { nullable: true })
+  _max?: PostMaxAggregateInput;
 }

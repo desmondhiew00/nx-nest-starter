@@ -14,38 +14,37 @@ import { PostMaxAggregateInput } from './post-max-aggregate.input';
 
 @ArgsType()
 export class PostGroupByArgs {
+  @Field(() => PostWhereInput, { nullable: true })
+  @Type(() => PostWhereInput)
+  where?: PostWhereInput;
 
-    @Field(() => PostWhereInput, {nullable:true})
-    @Type(() => PostWhereInput)
-    where?: PostWhereInput;
+  @Field(() => [PostOrderByWithAggregationInput], { nullable: true })
+  orderBy?: Array<PostOrderByWithAggregationInput>;
 
-    @Field(() => [PostOrderByWithAggregationInput], {nullable:true})
-    orderBy?: Array<PostOrderByWithAggregationInput>;
+  @Field(() => [PostScalarFieldEnum], { nullable: false })
+  by!: Array<keyof typeof PostScalarFieldEnum>;
 
-    @Field(() => [PostScalarFieldEnum], {nullable:false})
-    by!: Array<keyof typeof PostScalarFieldEnum>;
+  @Field(() => PostScalarWhereWithAggregatesInput, { nullable: true })
+  having?: PostScalarWhereWithAggregatesInput;
 
-    @Field(() => PostScalarWhereWithAggregatesInput, {nullable:true})
-    having?: PostScalarWhereWithAggregatesInput;
+  @Field(() => Int, { nullable: true })
+  take?: number;
 
-    @Field(() => Int, {nullable:true})
-    take?: number;
+  @Field(() => Int, { nullable: true })
+  skip?: number;
 
-    @Field(() => Int, {nullable:true})
-    skip?: number;
+  @Field(() => PostCountAggregateInput, { nullable: true })
+  _count?: PostCountAggregateInput;
 
-    @Field(() => PostCountAggregateInput, {nullable:true})
-    _count?: PostCountAggregateInput;
+  @Field(() => PostAvgAggregateInput, { nullable: true })
+  _avg?: PostAvgAggregateInput;
 
-    @Field(() => PostAvgAggregateInput, {nullable:true})
-    _avg?: PostAvgAggregateInput;
+  @Field(() => PostSumAggregateInput, { nullable: true })
+  _sum?: PostSumAggregateInput;
 
-    @Field(() => PostSumAggregateInput, {nullable:true})
-    _sum?: PostSumAggregateInput;
+  @Field(() => PostMinAggregateInput, { nullable: true })
+  _min?: PostMinAggregateInput;
 
-    @Field(() => PostMinAggregateInput, {nullable:true})
-    _min?: PostMinAggregateInput;
-
-    @Field(() => PostMaxAggregateInput, {nullable:true})
-    _max?: PostMaxAggregateInput;
+  @Field(() => PostMaxAggregateInput, { nullable: true })
+  _max?: PostMaxAggregateInput;
 }

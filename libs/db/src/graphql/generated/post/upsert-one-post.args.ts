@@ -8,16 +8,15 @@ import { PostUpdateInput } from './post-update.input';
 
 @ArgsType()
 export class UpsertOnePostArgs {
+  @Field(() => PostWhereUniqueInput, { nullable: false })
+  @Type(() => PostWhereUniqueInput)
+  where!: Prisma.AtLeast<PostWhereUniqueInput, 'id'>;
 
-    @Field(() => PostWhereUniqueInput, {nullable:false})
-    @Type(() => PostWhereUniqueInput)
-    where!: Prisma.AtLeast<PostWhereUniqueInput, 'id'>;
+  @Field(() => PostCreateInput, { nullable: false })
+  @Type(() => PostCreateInput)
+  create!: PostCreateInput;
 
-    @Field(() => PostCreateInput, {nullable:false})
-    @Type(() => PostCreateInput)
-    create!: PostCreateInput;
-
-    @Field(() => PostUpdateInput, {nullable:false})
-    @Type(() => PostUpdateInput)
-    update!: PostUpdateInput;
+  @Field(() => PostUpdateInput, { nullable: false })
+  @Type(() => PostUpdateInput)
+  update!: PostUpdateInput;
 }

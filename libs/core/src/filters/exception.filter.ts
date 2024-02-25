@@ -1,9 +1,4 @@
-import {
-  ArgumentsHost,
-  Catch,
-  ForbiddenException,
-  Logger,
-} from '@nestjs/common';
+import { ArgumentsHost, Catch, ForbiddenException, Logger } from '@nestjs/common';
 import { BaseExceptionFilter } from '@nestjs/core';
 import { JsonWebTokenError } from 'jsonwebtoken';
 import { ForbiddenError } from '@casl/ability';
@@ -26,7 +21,5 @@ export class AppExceptionsFilter extends BaseExceptionFilter {
 
 ForbiddenError.setDefaultMessage((error) => {
   const id = error?.subject?.id;
-  return `Insufficient Permissions: ${error.action}-${error.subjectType}${
-    id && `(id:${id})`
-  }`;
+  return `Insufficient Permissions: ${error.action}-${error.subjectType}${id && `(id:${id})`}`;
 });

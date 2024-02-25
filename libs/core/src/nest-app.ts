@@ -11,7 +11,7 @@ import { initDayjs } from './dayjs';
 
 initDayjs();
 
-const isProduction = process.env["NODE_ENV"] === 'production';
+const isProduction = process.env['NODE_ENV'] === 'production';
 
 export class NestAppFactory {
   static async create(nestModule: Class, options?: NestApplicationOptions): Promise<NestApp> {
@@ -74,8 +74,8 @@ export class NestApp {
   }
 
   private applyGraphQLUploadMiddleware() {
-    this.app.use("/graphql", (req: Request, res: Response, next: NextFunction) => {
-      graphqlUploadExpress({ maxFileSize: 50000000, maxFiles: 10 })(req, res, next)
+    this.app.use('/graphql', (req: Request, res: Response, next: NextFunction) => {
+      graphqlUploadExpress({ maxFileSize: 50000000, maxFiles: 10 })(req, res, next);
     });
   }
 

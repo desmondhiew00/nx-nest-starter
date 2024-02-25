@@ -2,3 +2,5 @@
 /dist
 /coverage
 /.nx/cache
+
+/libs/db/src/graphql/generated
