@@ -40,6 +40,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
   constructor() {
     super({ datasourceUrl: '', datasources: { db: { url: '' } } });
     return new Proxy(this, {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       get: (target: any, key: string) => Reflect.get(key in extendedClient ? extendedClient : target, key)
     });
   }

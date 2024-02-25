@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-explicit-any */
 import { Field, Int, ObjectType } from '@nestjs/graphql';
 
 type Class = new (...args: any[]) => any;
