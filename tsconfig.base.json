@@ -20,10 +20,11 @@
       "@app/core": ["libs/core/src/index.ts"],
       "@app/db": ["libs/db/src/index.ts"],
       "@app/gql": ["libs/db/src/graphql/index.ts"],
+      "@app/gql/*": ["libs/db/src/graphql/*"],
       "@app/plugin": ["libs/plugin/src/index.ts"],
       "@app/utils": ["libs/utils/src/index.ts"],
       "@app/utils/*": ["libs/utils/src/*"],
-      "@gql-generated": ["libs/db/src/graphql/generated"],
+      "@gql-generated": ["libs/db/src/graphql/generated/index.ts"],
       "@gql-generated/*": ["libs/db/src/graphql/generated/*"]
     }
   },
