@@ -1,7 +1,8 @@
 import path from "path";
+import { PrismaError } from "@/libs/core/src";
 import { PrismaService } from "@app/db";
 import { CreateFindManyResultType } from "@app/gql";
-import { FindManyUserArgs, User } from "@gql-generated";
+import { FindManyUserArgs, User } from "@generated/graphql";
 import { Args, Info, Mutation, Parent, Query, ResolveField, Resolver } from "@nestjs/graphql";
 import { PrismaSelect } from "@paljs/plugins";
 import { GraphQLResolveInfo } from "graphql";
@@ -36,17 +37,21 @@ export class UserResolver {
   @UseJwtAuthGuard()
   @Query(() => UserManyResult)
   async users(@Args() args: FindManyUserArgs, @Info() info: GraphQLResolveInfo) {
-    const select = new PrismaSelect(info, {
-      excludeFields: {
-        User: ["fullName"],
-      },
-    }).value;
-    const total = await this.prisma.user.count({ where: args.where });
-    const data = await this.prisma.user.findMany({
-      ...args,
-      ...select["select"]["data"],
-    });
-    return { total, data };
+    try {
+      const select = new PrismaSelect(info, {
+        excludeFields: {
+          User: ["fullName"],
+        },
+      }).value;
+      const total = await this.prisma.user.count({ where: args.where });
+      const data = await this.prisma.user.findMany({
+        ...args,
+        ...select["select"]["data"],
+      });
+      return { total, data };
+    } catch (error) {
+      throw new PrismaError(error);
+    }
   }
 
   @Mutation(() => String)

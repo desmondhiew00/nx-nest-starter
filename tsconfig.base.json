@@ -25,8 +25,7 @@
       "@app/plugin": ["libs/plugin/src/index.ts"],
       "@app/utils": ["libs/utils/src/index.ts"],
       "@app/utils/*": ["libs/utils/src/*"],
-      "@gql-generated": ["libs/db/src/graphql/generated/index.ts"],
-      "@gql-generated/*": ["libs/db/src/graphql/generated/*"]
+      "@generated/*": ["libs/generated/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

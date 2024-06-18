@@ -6,7 +6,8 @@
   "scripts": {
     "prepare": "husky install",
     "postinstall": "cd ./libs/plugin && yarn install",
-    "prisma:generate": "rimraf libs/generated/src/graphql || prisma generate && npx nx run plugin:parse-gql-schema",
+    "prisma:initial": "rimraf libs/generated/* && rimraf prisma/migrations/* && rimraf prisma/seeds/*",
+    "prisma:generate": "rimraf libs/generated/src/graphql && prisma generate && npx nx run plugin:parse-gql-schema && npm run format",
     "prisma:migration:gen": "npx prisma migrate dev --create-only ",
     "prisma:migration:run": "npx prisma migrate dev && npm run prisma:generate",
     "prisma:seed": "npx nx run plugin:prisma-seed",

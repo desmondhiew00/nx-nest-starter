@@ -9,6 +9,7 @@ import { PrismaClient } from "@prisma/client";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { UserModule } from "./modules/user/user.module";
+import { PostModule } from "./modules/post/post.module";
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { UserModule } from "./modules/user/user.module";
       bucketName: process.env.AWS_S3_BUCKET || "",
     }),
     UserModule,
+    PostModule,
   ],
   controllers: [AppController],
   providers: [AppService],

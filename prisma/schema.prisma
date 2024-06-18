@@ -12,7 +12,7 @@ datasource db {
 
 generator nestgraphql {
   provider = "prisma-nestjs-graphql"
-  output   = "../libs/db/src/graphql/generated"
+  output   = "../libs/generated/src/graphql"
   reExport = "All"
 }
 

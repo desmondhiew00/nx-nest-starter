@@ -1,4 +1,7 @@
 {
+  "files.exclude": {
+    "libs/generated/src/graphql/**/*": true
+  },
   "editor.codeActionsOnSave": {
     "source.organizeImports.biome": "explicit"
   },
