@@ -1,1 +1,2 @@
-export interface PrismaResetExecutorSchema {} // eslint-disable-line
+// biome-ignore lint/complexity/noBannedTypes: <explanation>
+export type PrismaResetExecutorSchema = {};

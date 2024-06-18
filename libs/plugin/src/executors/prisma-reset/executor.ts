@@ -1,11 +1,11 @@
-import { execSync } from 'child_process';
-import * as fs from 'fs';
-import * as path from 'path';
-import signale from 'signale';
+import { execSync } from "child_process";
+import * as fs from "fs";
+import * as path from "path";
+import signale from "signale";
 
-import { PrismaResetExecutorSchema } from './schema';
+import { PrismaResetExecutorSchema } from "./schema";
 
-const rootDir = path.resolve(__dirname, '../../../../../');
+const rootDir = path.resolve(__dirname, "../../../../../");
 const removeDirAsync = (dir: string) => {
   return new Promise((resolve, reject) => {
     fs.rm(dir, { recursive: true }, (err) => {
@@ -31,37 +31,37 @@ const createDirAsync = (dir: string) => {
 };
 
 export default async function runExecutor(_options: PrismaResetExecutorSchema) {
-  const removeDirs = ['libs/generated/src/graphql', 'prisma/migrations', 'prisma/seeds'];
-  signale.start('Resetting Prisma...');
+  const removeDirs = ["libs/generated/src/graphql", "prisma/migrations", "prisma/seeds"];
+  signale.start("Resetting Prisma...");
 
   await Promise.all(
     removeDirs.map(async (dir) => {
       try {
         await removeDirAsync(path.resolve(rootDir, dir));
         signale.success(`Removed ${dir}`);
-      } catch (e) {
-        signale.error(`Remove directory error: ${e.message}`);
+      } catch (e: unknown) {
+        signale.error(`Remove directory error: ${e instanceof Error ? e.message : e}`);
       }
-    })
+    }),
   );
 
   // create prisma/seeds directory
   try {
-    const seedsPath = path.resolve(rootDir, 'prisma/seeds');
+    const seedsPath = path.resolve(rootDir, "prisma/seeds");
     await createDirAsync(seedsPath);
   } catch (e) {
     signale.error(`${e}`);
   }
 
-  signale.start('Running prisma generate...');
+  signale.start("Running prisma generate...");
   try {
-    execSync('npx prisma generate', { stdio: 'inherit' });
-  } catch (e) {
-    signale.error('Error running prisma generate');
+    execSync("npx prisma generate", { stdio: "inherit" });
+  } catch (_e) {
+    signale.error("Error running prisma generate");
     return { success: false };
   }
 
   return {
-    success: true
+    success: true,
   };
 }

@@ -1,1 +1,2 @@
-export interface PrismaSeedExecutorSchema {} // eslint-disable-line
+// biome-ignore lint/complexity/noBannedTypes: <explanation>
+export type PrismaSeedExecutorSchema = {};

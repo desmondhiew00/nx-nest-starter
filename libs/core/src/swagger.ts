@@ -1,5 +1,5 @@
-import { INestApplication } from '@nestjs/common';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { INestApplication } from "@nestjs/common";
+import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 
 export interface InitSwaggerConfig {
   title: string;
@@ -10,7 +10,7 @@ export interface InitSwaggerConfig {
 }
 
 export const initSwagger = (app: INestApplication, configs: InitSwaggerConfig) => {
-  const { title, description, path = 'api', version = '1.0', tags = [] } = configs || {};
+  const { title, description, path = "api", version = "1.0", tags = [] } = configs || {};
 
   const config = new DocumentBuilder();
 
@@ -22,7 +22,7 @@ export const initSwagger = (app: INestApplication, configs: InitSwaggerConfig) =
   });
 
   config.setVersion(version);
-  config.addBearerAuth({ in: 'header', type: 'http', bearerFormat: 'JWT' });
+  config.addBearerAuth({ in: "header", type: "http", bearerFormat: "JWT" });
 
   const document = SwaggerModule.createDocument(app, config.build());
   SwaggerModule.setup(path, app, document);

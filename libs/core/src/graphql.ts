@@ -1,7 +1,7 @@
-import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { GraphQLModule } from '@nestjs/graphql';
-import { PrismaClient } from '@prisma/client';
+import { ApolloServerPluginLandingPageLocalDefault } from "@apollo/server/plugin/landingPage/default";
+import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
+import { GraphQLModule } from "@nestjs/graphql";
+import { PrismaClient } from "@prisma/client";
 
 export class GqlModule {
   static forRoot(prisma: PrismaClient, config?: ApolloDriverConfig) {
@@ -16,7 +16,7 @@ export class GqlModule {
       formatError: (error) => {
         return { message: error.message };
       },
-      ...config
+      ...config,
     });
   }
 }

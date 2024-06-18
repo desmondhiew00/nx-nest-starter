@@ -1,20 +1,20 @@
-import { ArgumentsHost, Catch, ForbiddenException, Logger } from '@nestjs/common';
-import { BaseExceptionFilter } from '@nestjs/core';
-import { JsonWebTokenError } from 'jsonwebtoken';
-import { ForbiddenError } from '@casl/ability';
+import { ForbiddenError } from "@casl/ability";
+import { ArgumentsHost, Catch, ForbiddenException, Logger } from "@nestjs/common";
+import { BaseExceptionFilter } from "@nestjs/core";
+import { JsonWebTokenError } from "jsonwebtoken";
 
 @Catch()
 export class AppExceptionsFilter extends BaseExceptionFilter {
-  private readonly logger = new Logger('Error');
+  private readonly logger = new Logger("Error");
 
   override catch(exception: Error, host: ArgumentsHost) {
     this.logger.error(exception, exception.stack);
     if (exception instanceof JsonWebTokenError) {
-      exception = new ForbiddenException('Invalid Token');
+      exception = new ForbiddenException("Invalid Token");
     }
 
-    const contextType = host.getType() as any;
-    if (contextType === 'graphql') return;
+    const contextType = host.getType() as string;
+    if (contextType === "graphql") return;
     super.catch(exception, host);
   }
 }

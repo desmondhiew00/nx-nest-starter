@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-nx format:write
-npx nx affected -t lint build
+npm run format
+npx nx affected -t build
 

@@ -1,14 +1,14 @@
-import { exec } from 'child_process';
-import * as fs from 'fs';
-import * as path from 'path';
-import * as util from 'util';
+import { exec } from "child_process";
+import * as fs from "fs";
+import * as path from "path";
+import * as util from "util";
 
 /**
  * Get all the directories in a given path
  * @returns {Promise<string[]>} - An array of strings representing the directories in the given path
  */
 export const getDirectories = async (srcPath: string, excludes: string[]): Promise<string[]> => {
-  const values = [];
+  const values: string[] = [];
   await fs.promises.readdir(srcPath).then(async (files) => {
     for (const file of files) {
       const filePath = path.join(srcPath, file);

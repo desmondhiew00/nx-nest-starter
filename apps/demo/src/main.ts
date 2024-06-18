@@ -3,9 +3,9 @@
  * This is only a minimal backend to get started.
  */
 
-import { NestAppFactory } from '@app/core';
+import { NestAppFactory } from "@app/core";
 
-import { AppModule } from './app.module';
+import { AppModule } from "./app.module";
 
 async function bootstrap() {
   const app = await NestAppFactory.create(AppModule);

@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { HttpStatus, INestApplication, NestApplicationOptions, ValidationPipe } from '@nestjs/common';
-import { NestFactory } from '@nestjs/core';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import cookieParser from 'cookie-parser';
-import { NextFunction, Request, Response } from 'express';
-import { graphqlUploadExpress } from 'graphql-upload-minimal';
-import helmet from 'helmet';
-import signale from 'signale';
-import { initDayjs } from './dayjs';
+import { HttpStatus, INestApplication, NestApplicationOptions, ValidationPipe } from "@nestjs/common";
+import { NestFactory } from "@nestjs/core";
+import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import cookieParser from "cookie-parser";
+import { NextFunction, Request, Response } from "express";
+import { graphqlUploadExpress } from "graphql-upload-minimal";
+import helmet from "helmet";
+import signale from "signale";
+import { initDayjs } from "./dayjs";
 
 initDayjs();
 
-const isProduction = process.env['NODE_ENV'] === 'production';
+const isProduction = process.env["NODE_ENV"] === "production";
 
 export class NestAppFactory {
   static async create(nestModule: Class, options?: NestApplicationOptions): Promise<NestApp> {
@@ -22,8 +22,8 @@ export class NestAppFactory {
 
 export class NestApp {
   app: INestApplication;
-  port = Number(process.env['PORT'] || 3000);
-  globalPrefix = 'api';
+  port = Number(process.env["PORT"] || 3000);
+  globalPrefix = "api";
   swagger = false;
   graphql = false;
 
@@ -33,7 +33,7 @@ export class NestApp {
   }
 
   private applyEmptyContentMiddleware() {
-    const routes = ['/favicon.ico', '/robots.txt'];
+    const routes = ["/favicon.ico", "/robots.txt"];
     this.app.use((req: Request, res: Response, next: NextFunction) => {
       if (routes.includes(req.originalUrl)) {
         res.status(204).end();
@@ -46,7 +46,7 @@ export class NestApp {
   private applyCorsMiddleware() {
     this.app.enableCors({
       credentials: true,
-      exposedHeaders: 'Content-Disposition'
+      exposedHeaders: "Content-Disposition",
     });
   }
 
@@ -54,8 +54,8 @@ export class NestApp {
     this.app.use(
       helmet({
         crossOriginEmbedderPolicy: isProduction,
-        contentSecurityPolicy: isProduction
-      })
+        contentSecurityPolicy: isProduction,
+      }),
     );
   }
 
@@ -68,13 +68,13 @@ export class NestApp {
       new ValidationPipe({
         errorHttpStatusCode: HttpStatus.PRECONDITION_FAILED,
         transform: true,
-        forbidUnknownValues: false
-      })
+        forbidUnknownValues: false,
+      }),
     );
   }
 
   private applyGraphQLUploadMiddleware() {
-    this.app.use('/graphql', (req: Request, res: Response, next: NextFunction) => {
+    this.app.use("/graphql", (req: Request, res: Response, next: NextFunction) => {
       graphqlUploadExpress({ maxFileSize: 50000000, maxFiles: 10 })(req, res, next);
     });
   }
@@ -93,8 +93,8 @@ export class NestApp {
   }
 
   applySwagger(options?: InitSwaggerOptions) {
-    if (!this.app) throw new Error('NestApplication is not created yet');
-    const { title = 'API', description, path = 'api', version = '1.0', tags = [] } = options || {};
+    if (!this.app) throw new Error("NestApplication is not created yet");
+    const { title = "API", description, path = "api", version = "1.0", tags = [] } = options || {};
 
     const config = new DocumentBuilder();
 
@@ -106,7 +106,7 @@ export class NestApp {
     });
 
     config.setVersion(version);
-    config.addBearerAuth({ in: 'header', type: 'http', bearerFormat: 'JWT' });
+    config.addBearerAuth({ in: "header", type: "http", bearerFormat: "JWT" });
 
     const document = SwaggerModule.createDocument(this.app, config.build());
     SwaggerModule.setup(path, this.app, document);
@@ -115,7 +115,7 @@ export class NestApp {
   }
 
   async start() {
-    if (!this.app) throw new Error('NestApplication is not created yet');
+    if (!this.app) throw new Error("NestApplication is not created yet");
     await this.app.listen(this.port);
     this.logApplicationInfo();
   }
@@ -131,6 +131,7 @@ export class NestApp {
   }
 }
 
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 type Class = new (...args: any[]) => any;
 interface InitSwaggerOptions {
   title: string;
