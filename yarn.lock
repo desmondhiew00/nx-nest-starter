@@ -9308,6 +9308,11 @@ prisma-extension-soft-delete@^1.0.0:
   dependencies:
     prisma-extension-nested-operations "^1.0.1"
 
+prisma-graphql-type-decimal@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/prisma-graphql-type-decimal/-/prisma-graphql-type-decimal-3.0.0.tgz#f3fa524b9e7aeab4fa0f969829bdddf199eff9fe"
+  integrity sha512-jrALv8ShVZoBBNyIOBCxwRoLM/DAOSD/OBKTWeJa9UigQXUTZniNXvLd4fLXwm+3v00A7cOZ1fFh3b74Ndgxhw==
+
 prisma-nestjs-graphql@^20.0.2:
   version "20.0.2"
   resolved "https://registry.yarnpkg.com/prisma-nestjs-graphql/-/prisma-nestjs-graphql-20.0.2.tgz#a7534580f0501d7708f05f6877a3751161da2f65"
