@@ -6,7 +6,12 @@ import { GeneratedGqlParserExecutorSchema } from './schema';
 export default async function runExecutor(_options: GeneratedGqlParserExecutorSchema) {
   const generatedSrc = 'libs/generated/src/graphql';
 
+  if (!fs.existsSync(generatedSrc)) {
+    fs.mkdirSync(generatedSrc, { recursive: true });
+  }
+
   const models = fs.readdirSync(generatedSrc);
+
   models.forEach((dir) => {
     const isDir = isDirectory(`${generatedSrc}/${dir}`);
     if (isDir) {

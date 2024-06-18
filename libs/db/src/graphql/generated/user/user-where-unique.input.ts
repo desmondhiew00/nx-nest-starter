@@ -10,39 +10,40 @@ import { PostListRelationFilter } from '../post/post-list-relation-filter.input'
 
 @InputType()
 export class UserWhereUniqueInput {
-  @Field(() => Int, { nullable: true })
-  id?: number;
 
-  @Field(() => String, { nullable: true })
-  email?: string;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
-  @Field(() => [UserWhereInput], { nullable: true })
-  AND?: Array<UserWhereInput>;
+    @Field(() => String, {nullable:true})
+    email?: string;
 
-  @Field(() => [UserWhereInput], { nullable: true })
-  OR?: Array<UserWhereInput>;
+    @Field(() => [UserWhereInput], {nullable:true})
+    AND?: Array<UserWhereInput>;
 
-  @Field(() => [UserWhereInput], { nullable: true })
-  NOT?: Array<UserWhereInput>;
+    @Field(() => [UserWhereInput], {nullable:true})
+    OR?: Array<UserWhereInput>;
 
-  @Field(() => StringNullableFilter, { nullable: true })
-  name?: StringNullableFilter;
+    @Field(() => [UserWhereInput], {nullable:true})
+    NOT?: Array<UserWhereInput>;
 
-  @Field(() => StringNullableFilter, { nullable: true })
-  avatar?: StringNullableFilter;
+    @Field(() => StringNullableFilter, {nullable:true})
+    name?: StringNullableFilter;
 
-  @Field(() => StringFilter, { nullable: true })
-  password?: StringFilter;
+    @Field(() => StringNullableFilter, {nullable:true})
+    avatar?: StringNullableFilter;
 
-  @Field(() => DateTimeFilter, { nullable: true })
-  createdAt?: DateTimeFilter;
+    @Field(() => StringFilter, {nullable:true})
+    password?: StringFilter;
 
-  @Field(() => DateTimeFilter, { nullable: true })
-  updatedAt?: DateTimeFilter;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: DateTimeFilter;
 
-  @Field(() => DateTimeNullableFilter, { nullable: true })
-  deletedAt?: DateTimeNullableFilter;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: DateTimeFilter;
 
-  @Field(() => PostListRelationFilter, { nullable: true })
-  posts?: PostListRelationFilter;
+    @Field(() => DateTimeNullableFilter, {nullable:true})
+    deletedAt?: DateTimeNullableFilter;
+
+    @Field(() => PostListRelationFilter, {nullable:true})
+    posts?: PostListRelationFilter;
 }

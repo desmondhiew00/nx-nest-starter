@@ -10,22 +10,23 @@ import { PostScalarFieldEnum } from './post-scalar-field.enum';
 
 @ArgsType()
 export class FindFirstPostArgs {
-  @Field(() => PostWhereInput, { nullable: true })
-  @Type(() => PostWhereInput)
-  where?: PostWhereInput;
 
-  @Field(() => [PostOrderByWithRelationInput], { nullable: true })
-  orderBy?: Array<PostOrderByWithRelationInput>;
+    @Field(() => PostWhereInput, {nullable:true})
+    @Type(() => PostWhereInput)
+    where?: PostWhereInput;
 
-  @Field(() => PostWhereUniqueInput, { nullable: true })
-  cursor?: Prisma.AtLeast<PostWhereUniqueInput, 'id'>;
+    @Field(() => [PostOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<PostOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => PostWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<PostWhereUniqueInput, 'id'>;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => [PostScalarFieldEnum], { nullable: true })
-  distinct?: Array<keyof typeof PostScalarFieldEnum>;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+
+    @Field(() => [PostScalarFieldEnum], {nullable:true})
+    distinct?: Array<keyof typeof PostScalarFieldEnum>;
 }

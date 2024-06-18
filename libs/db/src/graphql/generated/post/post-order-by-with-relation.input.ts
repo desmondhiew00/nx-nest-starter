@@ -6,30 +6,31 @@ import { UserOrderByWithRelationInput } from '../user/user-order-by-with-relatio
 
 @InputType()
 export class PostOrderByWithRelationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  title?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  content?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    title?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  published?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    content?: keyof typeof SortOrder;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  authorId?: SortOrderInput;
+    @Field(() => SortOrder, {nullable:true})
+    published?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrderInput, {nullable:true})
+    authorId?: SortOrderInput;
 
-  @Field(() => SortOrder, { nullable: true })
-  updatedAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  deletedAt?: SortOrderInput;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => UserOrderByWithRelationInput, { nullable: true })
-  author?: UserOrderByWithRelationInput;
+    @Field(() => SortOrderInput, {nullable:true})
+    deletedAt?: SortOrderInput;
+
+    @Field(() => UserOrderByWithRelationInput, {nullable:true})
+    author?: UserOrderByWithRelationInput;
 }

@@ -8,36 +8,37 @@ import { DateTimeNullableWithAggregatesFilter } from '../prisma/date-time-nullab
 
 @InputType()
 export class UserScalarWhereWithAggregatesInput {
-  @Field(() => [UserScalarWhereWithAggregatesInput], { nullable: true })
-  AND?: Array<UserScalarWhereWithAggregatesInput>;
 
-  @Field(() => [UserScalarWhereWithAggregatesInput], { nullable: true })
-  OR?: Array<UserScalarWhereWithAggregatesInput>;
+    @Field(() => [UserScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<UserScalarWhereWithAggregatesInput>;
 
-  @Field(() => [UserScalarWhereWithAggregatesInput], { nullable: true })
-  NOT?: Array<UserScalarWhereWithAggregatesInput>;
+    @Field(() => [UserScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<UserScalarWhereWithAggregatesInput>;
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  id?: IntWithAggregatesFilter;
+    @Field(() => [UserScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<UserScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  email?: StringWithAggregatesFilter;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    id?: IntWithAggregatesFilter;
 
-  @Field(() => StringNullableWithAggregatesFilter, { nullable: true })
-  name?: StringNullableWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    email?: StringWithAggregatesFilter;
 
-  @Field(() => StringNullableWithAggregatesFilter, { nullable: true })
-  avatar?: StringNullableWithAggregatesFilter;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    name?: StringNullableWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  password?: StringWithAggregatesFilter;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    avatar?: StringNullableWithAggregatesFilter;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  createdAt?: DateTimeWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    password?: StringWithAggregatesFilter;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  updatedAt?: DateTimeWithAggregatesFilter;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    createdAt?: DateTimeWithAggregatesFilter;
 
-  @Field(() => DateTimeNullableWithAggregatesFilter, { nullable: true })
-  deletedAt?: DateTimeNullableWithAggregatesFilter;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    updatedAt?: DateTimeWithAggregatesFilter;
+
+    @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
+    deletedAt?: DateTimeNullableWithAggregatesFilter;
 }

@@ -5,7 +5,8 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class DeleteManyPostArgs {
-  @Field(() => PostWhereInput, { nullable: true })
-  @Type(() => PostWhereInput)
-  where?: PostWhereInput;
+
+    @Field(() => PostWhereInput, {nullable:true})
+    @Type(() => PostWhereInput)
+    where?: PostWhereInput;
 }

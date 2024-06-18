@@ -11,39 +11,40 @@ import { UserNullableRelationFilter } from '../user/user-nullable-relation-filte
 
 @InputType()
 export class PostWhereUniqueInput {
-  @Field(() => Int, { nullable: true })
-  id?: number;
 
-  @Field(() => [PostWhereInput], { nullable: true })
-  AND?: Array<PostWhereInput>;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
-  @Field(() => [PostWhereInput], { nullable: true })
-  OR?: Array<PostWhereInput>;
+    @Field(() => [PostWhereInput], {nullable:true})
+    AND?: Array<PostWhereInput>;
 
-  @Field(() => [PostWhereInput], { nullable: true })
-  NOT?: Array<PostWhereInput>;
+    @Field(() => [PostWhereInput], {nullable:true})
+    OR?: Array<PostWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  title?: StringFilter;
+    @Field(() => [PostWhereInput], {nullable:true})
+    NOT?: Array<PostWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  content?: StringFilter;
+    @Field(() => StringFilter, {nullable:true})
+    title?: StringFilter;
 
-  @Field(() => BoolFilter, { nullable: true })
-  published?: BoolFilter;
+    @Field(() => StringFilter, {nullable:true})
+    content?: StringFilter;
 
-  @Field(() => IntNullableFilter, { nullable: true })
-  authorId?: IntNullableFilter;
+    @Field(() => BoolFilter, {nullable:true})
+    published?: BoolFilter;
 
-  @Field(() => DateTimeFilter, { nullable: true })
-  createdAt?: DateTimeFilter;
+    @Field(() => IntNullableFilter, {nullable:true})
+    authorId?: IntNullableFilter;
 
-  @Field(() => DateTimeFilter, { nullable: true })
-  updatedAt?: DateTimeFilter;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: DateTimeFilter;
 
-  @Field(() => DateTimeNullableFilter, { nullable: true })
-  deletedAt?: DateTimeNullableFilter;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: DateTimeFilter;
 
-  @Field(() => UserNullableRelationFilter, { nullable: true })
-  author?: UserNullableRelationFilter;
+    @Field(() => DateTimeNullableFilter, {nullable:true})
+    deletedAt?: DateTimeNullableFilter;
+
+    @Field(() => UserNullableRelationFilter, {nullable:true})
+    author?: UserNullableRelationFilter;
 }

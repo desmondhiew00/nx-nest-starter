@@ -4,27 +4,28 @@ import { Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class PostMaxAggregate {
-  @Field(() => Int, { nullable: true })
-  id?: number;
 
-  @Field(() => String, { nullable: true })
-  title?: string;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
-  @Field(() => String, { nullable: true })
-  content?: string;
+    @Field(() => String, {nullable:true})
+    title?: string;
 
-  @Field(() => Boolean, { nullable: true })
-  published?: boolean;
+    @Field(() => String, {nullable:true})
+    content?: string;
 
-  @Field(() => Int, { nullable: true })
-  authorId?: number;
+    @Field(() => Boolean, {nullable:true})
+    published?: boolean;
 
-  @Field(() => Date, { nullable: true })
-  createdAt?: Date | string;
+    @Field(() => Int, {nullable:true})
+    authorId?: number;
 
-  @Field(() => Date, { nullable: true })
-  updatedAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
 
-  @Field(() => Date, { nullable: true })
-  deletedAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+
+    @Field(() => Date, {nullable:true})
+    deletedAt?: Date | string;
 }

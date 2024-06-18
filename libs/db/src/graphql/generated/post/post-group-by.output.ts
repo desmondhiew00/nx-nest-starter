@@ -9,42 +9,43 @@ import { PostMaxAggregate } from './post-max-aggregate.output';
 
 @ObjectType()
 export class PostGroupBy {
-  @Field(() => Int, { nullable: false })
-  id!: number;
 
-  @Field(() => String, { nullable: false })
-  title!: string;
+    @Field(() => Int, {nullable:false})
+    id!: number;
 
-  @Field(() => String, { nullable: false })
-  content!: string;
+    @Field(() => String, {nullable:false})
+    title!: string;
 
-  @Field(() => Boolean, { nullable: false })
-  published!: boolean;
+    @Field(() => String, {nullable:false})
+    content!: string;
 
-  @Field(() => Int, { nullable: true })
-  authorId?: number;
+    @Field(() => Boolean, {nullable:false})
+    published!: boolean;
 
-  @Field(() => Date, { nullable: false })
-  createdAt!: Date | string;
+    @Field(() => Int, {nullable:true})
+    authorId?: number;
 
-  @Field(() => Date, { nullable: false })
-  updatedAt!: Date | string;
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date | string;
 
-  @Field(() => Date, { nullable: true })
-  deletedAt?: Date | string;
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date | string;
 
-  @Field(() => PostCountAggregate, { nullable: true })
-  _count?: PostCountAggregate;
+    @Field(() => Date, {nullable:true})
+    deletedAt?: Date | string;
 
-  @Field(() => PostAvgAggregate, { nullable: true })
-  _avg?: PostAvgAggregate;
+    @Field(() => PostCountAggregate, {nullable:true})
+    _count?: PostCountAggregate;
 
-  @Field(() => PostSumAggregate, { nullable: true })
-  _sum?: PostSumAggregate;
+    @Field(() => PostAvgAggregate, {nullable:true})
+    _avg?: PostAvgAggregate;
 
-  @Field(() => PostMinAggregate, { nullable: true })
-  _min?: PostMinAggregate;
+    @Field(() => PostSumAggregate, {nullable:true})
+    _sum?: PostSumAggregate;
 
-  @Field(() => PostMaxAggregate, { nullable: true })
-  _max?: PostMaxAggregate;
+    @Field(() => PostMinAggregate, {nullable:true})
+    _min?: PostMinAggregate;
+
+    @Field(() => PostMaxAggregate, {nullable:true})
+    _max?: PostMaxAggregate;
 }

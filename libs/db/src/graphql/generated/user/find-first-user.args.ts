@@ -10,22 +10,23 @@ import { UserScalarFieldEnum } from './user-scalar-field.enum';
 
 @ArgsType()
 export class FindFirstUserArgs {
-  @Field(() => UserWhereInput, { nullable: true })
-  @Type(() => UserWhereInput)
-  where?: UserWhereInput;
 
-  @Field(() => [UserOrderByWithRelationInput], { nullable: true })
-  orderBy?: Array<UserOrderByWithRelationInput>;
+    @Field(() => UserWhereInput, {nullable:true})
+    @Type(() => UserWhereInput)
+    where?: UserWhereInput;
 
-  @Field(() => UserWhereUniqueInput, { nullable: true })
-  cursor?: Prisma.AtLeast<UserWhereUniqueInput, 'id' | 'email'>;
+    @Field(() => [UserOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<UserOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => UserWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<UserWhereUniqueInput, 'id' | 'email'>;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => [UserScalarFieldEnum], { nullable: true })
-  distinct?: Array<keyof typeof UserScalarFieldEnum>;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+
+    @Field(() => [UserScalarFieldEnum], {nullable:true})
+    distinct?: Array<keyof typeof UserScalarFieldEnum>;
 }
