@@ -8389,10 +8389,10 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-nestlibs-aws-s3@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/nestlibs-aws-s3/-/nestlibs-aws-s3-0.1.1.tgz#0f6acc6a29589fe6392d73879f8089ffe23ca87a"
-  integrity sha512-Lx6KJrj498tl1Tu4qY9rFrMfvUP8w/it5lDfFfLFuW8n8YCaJuil6RiZH8VEoarG6cBM5cl1/80FSjSrwDJJ5Q==
+nestlibs-aws-s3@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/nestlibs-aws-s3/-/nestlibs-aws-s3-0.5.0.tgz#556f083522edf4dcf2f4a8d84b467bad52bce18c"
+  integrity sha512-0FS31EqVskP0WU7jZDC85D9hTQ9oJnqmHczgy66wBpMMgqb7Wwi4p+JiXYQ0dUMOZp8v3a2DpL9fudkVEaelrA==
   dependencies:
     mime-types "^2.1.35"
     tslib "^2.3.0"

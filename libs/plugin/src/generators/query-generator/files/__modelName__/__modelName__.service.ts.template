@@ -1,0 +1,31 @@
+import { PrismaError } from '@app/core';
+import { PrismaService } from '<%= prismaClientImportSrc %>';
+import { FindMany<%= pascalCase(modelName) %>Args, FindUnique<%= pascalCase(modelName) %>Args } from '<%= gqlImportSrc %>';
+import { Injectable } from '@nestjs/common';
+import { PrismaSelect } from '@paljs/plugins';
+import { GraphQLResolveInfo } from 'graphql';
+
+@Injectable()
+export class <%= pascalCase(modelName) %>Service {
+  constructor(private prisma: PrismaService) {}
+
+  async <%= plural(modelName) %>(args: FindMany<%= pascalCase(modelName) %>Args, info: GraphQLResolveInfo) {
+    try {
+      const select = new PrismaSelect(info).value['select'];
+      const total = select.total ? await this.prisma.<%= singular(modelName) %>.count({ where: args.where }) : 0;
+      const data = await this.prisma.<%= singular(modelName) %>.findMany({ ...args, ...select['data'] });
+      return { total, data };
+    } catch (error) {
+      throw new PrismaError(error);
+    }
+  }
+
+  async <%= singular(modelName) %>(args: FindUnique<%= pascalCase(modelName) %>Args, info: GraphQLResolveInfo) {
+    try {
+      const select = new PrismaSelect(info).value['select'];
+      return this.prisma.<%= singular(modelName) %>.findUnique({ where: args.where, select });
+    } catch (error) {
+      throw new PrismaError(error);
+    }
+  }
+}

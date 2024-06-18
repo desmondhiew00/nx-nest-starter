@@ -1,5 +1,5 @@
-import { PrismaResetExecutorSchema } from './schema';
 import executor from './executor';
+import { PrismaResetExecutorSchema } from './schema';
 
 const options: PrismaResetExecutorSchema = {};
 

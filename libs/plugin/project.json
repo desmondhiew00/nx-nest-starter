@@ -41,6 +41,9 @@
     },
     "prisma-reset": {
       "executor": "@app/plugin:prisma-reset"
+    },
+    "parse-gql-schema": {
+      "executor": "@app/plugin:parse-gql-schema"
     }
   },
   "tags": []

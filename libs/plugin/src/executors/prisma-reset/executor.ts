@@ -2,6 +2,7 @@ import { execSync } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
 import signale from 'signale';
+
 import { PrismaResetExecutorSchema } from './schema';
 
 const rootDir = path.resolve(__dirname, '../../../../../');
@@ -30,7 +31,7 @@ const createDirAsync = (dir: string) => {
 };
 
 export default async function runExecutor(_options: PrismaResetExecutorSchema) {
-  const removeDirs = ['libs/db/src/graphql/generated', 'prisma/migrations', 'prisma/seeds'];
+  const removeDirs = ['libs/generated/src/graphql', 'prisma/migrations', 'prisma/seeds'];
   signale.start('Resetting Prisma...');
 
   await Promise.all(

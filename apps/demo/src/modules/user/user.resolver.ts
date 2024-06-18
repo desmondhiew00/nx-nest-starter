@@ -1,3 +1,4 @@
+import path from 'path';
 import { PrismaService } from '@app/db';
 import { CreateFindManyResultType } from '@app/gql';
 import { FindManyUserArgs, User } from '@gql-generated';
@@ -5,7 +6,7 @@ import { Args, Info, Mutation, Parent, Query, ResolveField, Resolver } from '@ne
 import { PrismaSelect } from '@paljs/plugins';
 import { GraphQLResolveInfo } from 'graphql';
 import { FileUpload, GraphQLUpload } from 'graphql-upload-minimal';
-import { AwsS3Service, S3KeyBuilder } from 'nestlibs-aws-s3';
+import { AwsS3Service } from 'nestlibs-aws-s3';
 import { InjectJwtAuthService, JwtAuthService } from 'nestlibs-jwt-auth';
 import { UseJwtAuthGuard } from '../auth';
 
@@ -50,7 +51,7 @@ export class UserResolver {
     if (!user) throw new Error('User not found');
 
     const { filename } = await file;
-    const key = new S3KeyBuilder('users').module('profile').build(user.id, filename, 'avatar');
+    const key = 'avatar' + path.extname(filename);
     const preSignedUrl = this.s3.getSignedUrl(key, 'put', { acl: 'public-read' });
 
     await this.prisma.user.update({ where: { id: user.id }, data: { avatar: key } });

@@ -9,6 +9,11 @@
       "implementation": "./src/executors/prisma-reset/executor",
       "schema": "./src/executors/prisma-reset/schema.json",
       "description": "prisma-reset executor"
+    },
+    "parse-gql-schema": {
+      "implementation": "./src/executors/parse-gql-schema/executor",
+      "schema": "./src/executors/parse-gql-schema/schema.json",
+      "description": "parse-gql-schema executor"
     }
   }
 }

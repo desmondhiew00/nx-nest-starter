@@ -1,0 +1,27 @@
+import { CreateFindManyResultType } from '@app/db';
+import { FindMany<%= pascalCase(modelName) %>Args, FindUnique<%= pascalCase(modelName) %>Args, <%= pascalCase(modelName) %> } from '<%= gqlImportSrc %>';
+import { Args, Info, Query, Resolver } from '@nestjs/graphql';
+import { GraphQLResolveInfo } from 'graphql';
+import { <%= pascalCase(modelName) %>Service } from './<%= modelName %>.service';
+<% if (withAuth) { %>import { UseJwtAuthGuard } from '../auth';<% } %>
+
+const <%= pascalCase(modelName) %>ManyResult = CreateFindManyResultType(<%= pascalCase(modelName) %>);
+
+<% if (withAuth) { %>
+@UseJwtAuthGuard()
+<% } %>
+@Resolver(<%= pascalCase(modelName) %>)
+export class <%= pascalCase(modelName) %>Resolver {
+  constructor(private <%= camelCase(modelName) %>Service: <%= pascalCase(modelName) %>Service) {}
+
+  @Query(() => <%= pascalCase(modelName) %>ManyResult)
+  async <%= plural(modelName) %>(@Args() args: FindMany<%= pascalCase(modelName) %>Args, @Info() info: GraphQLResolveInfo) {
+    return this.<%= camelCase(modelName) %>Service.<%= plural(modelName) %>(args, info);
+  }
+
+  @Query(() => <%= pascalCase(modelName) %>, { nullable: true })
+  async <%= singular(modelName) %>(@Args() args: FindUnique<%= pascalCase(modelName) %>Args, @Info() info: GraphQLResolveInfo) {
+    return this.<%= camelCase(modelName) %>Service.<%= singular(modelName) %>(args, info);
+  }
+}
+

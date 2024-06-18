@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "QueryGenerator",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "withAuth": {
+      "type": "boolean",
+      "x-prompt": "Do you want to generate resolver with auth guard?",
+      "default": true
+    },
+    "force": {
+      "type": "boolean"
+    }
+  },
+  "required": ["withAuth"]
+}

@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "query-generator": {
+      "factory": "./src/generators/query-generator/generator",
+      "schema": "./src/generators/query-generator/schema.json",
+      "description": "query-generator generator"
+    }
+  }
+}

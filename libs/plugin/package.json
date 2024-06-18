@@ -3,8 +3,12 @@
   "version": "0.0.1",
   "dependencies": {
     "@nx/devkit": "18.0.4",
+    "case-anything": "^2.1.13",
+    "chalk": "4.1.2",
     "inquirer": "^8.2.6",
+    "pluralize": "^8.0.0",
     "signale": "^1.4.0",
+    "ts-morph": "^21.0.1",
     "tslib": "^2.3.0"
   },
   "type": "commonjs",
@@ -12,6 +16,8 @@
   "typings": "./src/index.d.ts",
   "executors": "./executors.json",
   "devDependencies": {
-    "@types/inquirer": "^9.0.7"
-  }
+    "@types/inquirer": "^9.0.7",
+    "@types/pluralize": "^0.0.33"
+  },
+  "generators": "./generators.json"
 }
