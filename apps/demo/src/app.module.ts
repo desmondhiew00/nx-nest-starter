@@ -4,12 +4,12 @@ import { JwtAuthModule } from "nestlibs-jwt-auth";
 import { LoggerModule } from "nestlibs-winston-logger";
 
 import { EnvConfigModule, GqlModule } from "@app/core";
-import { PrismaModule, extendedClient } from "@app/db";
+import { PrismaModule, prismaClient } from "@app/db";
 import { PrismaClient } from "@prisma/client";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
-import { UserModule } from "./modules/user/user.module";
 import { PostModule } from "./modules/post/post.module";
+import { UserModule } from "./modules/user/user.module";
 
 @Module({
   imports: [
@@ -20,7 +20,7 @@ import { PostModule } from "./modules/post/post.module";
       accessTokenSecret: "secret",
       refreshTokenSecret: "secret",
     }),
-    GqlModule.forRoot(extendedClient as unknown as PrismaClient),
+    GqlModule.forRoot(prismaClient as unknown as PrismaClient),
     AwsS3Module.forRoot({
       prefix: process.env.AWS_S3_PREFIX,
       region: process.env.AWS_REGION || "",
