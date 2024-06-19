@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  admin-api:
+    container_name: nx-nest-start-demo
+    restart: always
+    ports:
+      - '4000:4000'
+    env_file:
+      - .demo.env
+    build:
+      dockerfile: ./apps/demo/Dockerfile
