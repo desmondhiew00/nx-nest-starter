@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpStatus, NestApplicationOptions, ValidationPipe } from "@nestjs/common";
-import { NestFactory } from "@nestjs/core";
+import { HttpAdapterHost, NestFactory } from "@nestjs/core";
 import type { NestExpressApplication } from "@nestjs/platform-express";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import cookieParser from "cookie-parser";
@@ -8,6 +9,7 @@ import { graphqlUploadExpress } from "graphql-upload-minimal";
 import helmet from "helmet";
 import signale from "signale";
 import { initDayjs } from "./dayjs";
+import { AppExceptionsFilter } from "./filters/exception.filter";
 
 initDayjs();
 
@@ -92,6 +94,9 @@ export class NestApp {
     this.applyGraphQLUploadMiddleware();
 
     this.app.useBodyParser("json", { limit: "50mb" });
+
+    const { httpAdapter } = this.app.get(HttpAdapterHost);
+    this.app.useGlobalFilters(new AppExceptionsFilter(httpAdapter));
   }
 
   applySwagger(options?: InitSwaggerOptions) {
