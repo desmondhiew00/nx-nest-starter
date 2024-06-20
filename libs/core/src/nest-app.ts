@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { HttpStatus, INestApplication, NestApplicationOptions, ValidationPipe } from "@nestjs/common";
+import { HttpStatus, NestApplicationOptions, ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
+import type { NestExpressApplication } from "@nestjs/platform-express";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import cookieParser from "cookie-parser";
 import { NextFunction, Request, Response } from "express";
@@ -15,19 +15,19 @@ const isProduction = process.env["NODE_ENV"] === "production";
 
 export class NestAppFactory {
   static async create(nestModule: Class, options?: NestApplicationOptions): Promise<NestApp> {
-    const app = await NestFactory.create(nestModule, options);
+    const app = await NestFactory.create<NestExpressApplication>(nestModule, options);
     return new NestApp(app);
   }
 }
 
 export class NestApp {
-  app: INestApplication;
+  app: NestExpressApplication;
   port = Number(process.env["PORT"] || 3000);
   globalPrefix = "api";
   swagger = false;
   graphql = false;
 
-  constructor(app: INestApplication) {
+  constructor(app: NestExpressApplication) {
     this.app = app;
     this.app.setGlobalPrefix(this.globalPrefix);
   }
@@ -90,6 +90,8 @@ export class NestApp {
     this.applyCookieParserMiddleware();
     this.applyGlobalPipes();
     this.applyGraphQLUploadMiddleware();
+
+    this.app.useBodyParser("json", { limit: "50mb" });
   }
 
   applySwagger(options?: InitSwaggerOptions) {

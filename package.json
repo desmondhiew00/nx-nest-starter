@@ -5,7 +5,6 @@
   "private": true,
   "scripts": {
     "prepare": "husky install",
-    "postinstall": "cd ./libs/plugin && yarn install",
     "init:nx-plugin": "cd ./libs/plugin && yarn install",
     "prisma:initial": "rimraf libs/generated/* && rimraf prisma/migrations/* && rimraf prisma/seeds/*",
     "prisma:generate": "rimraf libs/generated/src/graphql && prisma generate && npx nx run plugin:parse-gql-schema && npm run format",
