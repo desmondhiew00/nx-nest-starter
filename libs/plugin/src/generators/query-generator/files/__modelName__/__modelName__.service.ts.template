@@ -41,7 +41,7 @@ export class <%= pascalCase(modelName) %>Service {
   }
 
   async delete<%= pascalCase(modelName) %>(id: number, authData: AuthData) {
-    const record = await this.prisma.<%= singular(modelName) %>.findUnique({ where: { id } });
+    const record = await this.prisma.<%= singular(modelName) %>.findUnique({ where: { id }, select: { id: true } })
     if (!record) throw new Error("Record not found");
 
     await this.prisma.<%= singular(modelName) %>.update({ where: { id: record.id }, data: { deletedBy: authData.id } });
