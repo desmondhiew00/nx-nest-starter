@@ -11,7 +11,9 @@ import { getDirectories } from "../../helper";
 import { QueryGeneratorGeneratorSchema } from "./schema";
 
 export async function queryGeneratorGenerator(tree: Tree, options?: QueryGeneratorGeneratorSchema) {
-  const forceMode = options?.force || false;
+  const forceMode = options?.force;
+  const withCrud = options?.withCrud;
+  const withAuth = options?.withAuth;
   const apps = await getDirectories("apps", []);
   let models = await getDirectories("libs/generated/src/graphql", ["prisma"]);
 
@@ -46,7 +48,8 @@ export async function queryGeneratorGenerator(tree: Tree, options?: QueryGenerat
   // Generate module, resolver and service
   if (targetModel !== "All") {
     models = [targetModel];
-  } else if (forceMode) {
+  }
+  if (forceMode) {
     const { confirm } = await inquirer.prompt([
       {
         type: "confirm",
@@ -75,7 +78,8 @@ export async function queryGeneratorGenerator(tree: Tree, options?: QueryGenerat
         modelName,
         gqlImportSrc,
         prismaClientImportSrc,
-        withAuth: options?.withAuth,
+        withAuth,
+        withCrud,
         camelCase,
         pascalCase,
         plural: (val: string) => pluralize.plural(camelCase(val)),

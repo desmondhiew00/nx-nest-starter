@@ -9,9 +9,14 @@
       "x-prompt": "Do you want to generate resolver with auth guard?",
       "default": true
     },
+    "withCrud": {
+      "type": "boolean",
+      "x-prompt": "Do you want to generate (Create, Update, Delete) resolvers?",
+      "default": true
+    },
     "force": {
       "type": "boolean"
     }
   },
-  "required": ["withAuth"]
+  "required": ["withAuth", "withCrud"]
 }

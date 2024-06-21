@@ -2,4 +2,5 @@
 export interface QueryGeneratorGeneratorSchema {
   withAuth: boolean;
   force?: boolean;
+  withCrud: boolean;
 }

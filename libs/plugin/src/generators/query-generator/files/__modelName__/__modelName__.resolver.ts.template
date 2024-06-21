@@ -1,9 +1,12 @@
 import { CreateFindManyResultType } from '@app/db';
 import { FindMany<%= pascalCase(modelName) %>Args, FindUnique<%= pascalCase(modelName) %>Args, <%= pascalCase(modelName) %> } from '<%= gqlImportSrc %>';
-import { Args, Info, Query, Resolver } from '@nestjs/graphql';
+import { Args, Info, <% if (withCrud) { %>Mutation, <% } %>Query, Resolver } from '@nestjs/graphql';
 import { GraphQLResolveInfo } from 'graphql';
 import { <%= pascalCase(modelName) %>Service } from './<%= modelName %>.service';
-<% if (withAuth) { %>import { UseJwtAuthGuard } from '../auth';<% } %>
+<% if (withCrud) { %>
+import { Create<%= pascalCase(modelName) %>Input, Update<%= pascalCase(modelName) %>Input } from "./<%= modelName %>.dto";
+import { AuthData, UseAuthUser, UseJwtAuthGuard } from "../auth";
+<% } %>
 
 const <%= pascalCase(modelName) %>ManyResult = CreateFindManyResultType(<%= pascalCase(modelName) %>);
 
@@ -23,5 +26,31 @@ export class <%= pascalCase(modelName) %>Resolver {
   async <%= singular(modelName) %>(@Args() args: FindUnique<%= pascalCase(modelName) %>Args, @Info() info: GraphQLResolveInfo) {
     return this.<%= camelCase(modelName) %>Service.<%= singular(modelName) %>(args, info);
   }
+<% if (withCrud) { %>
+  @Mutation(() => <%= pascalCase(modelName) %>)
+  async create<%= pascalCase(modelName) %>(
+    @Args("input") input: Create<%= pascalCase(modelName) %>Input,
+    @Info() info: GraphQLResolveInfo,
+    @UseAuthUser() authData: AuthData,
+  ) {
+    return this.<%= camelCase(modelName) %>Service.create<%= pascalCase(modelName) %>(input, authData, info);
+  }
+
+  @Mutation(() => <%= pascalCase(modelName) %>)
+  async update<%= pascalCase(modelName) %>(
+    @Args("id") id: number,
+    @Args("input") input: Update<%= pascalCase(modelName) %>Input,
+    @Info() info: GraphQLResolveInfo,
+    @UseAuthUser() authData: AuthData,
+  ) {
+    return this.<%= camelCase(modelName) %>Service.update<%= pascalCase(modelName) %>(id, input, authData, info);
+  }
+
+  @Mutation(() => Boolean)
+  async delete<%= pascalCase(modelName) %>(@Args("id") id: number, @UseAuthUser() authData: AuthData) {
+    await this.<%= camelCase(modelName) %>Service.delete<%= pascalCase(modelName) %>(id, authData);
+    return true;
+  }
+<% } %>
 }
 
